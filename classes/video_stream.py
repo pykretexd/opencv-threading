@@ -15,9 +15,7 @@ class VideoStream:
 
     def update(self):
         """Keep looping infinitely until the thread is stopped."""
-        while True:
-            if self.stopped:
-                return
+        while not self.stopped:
             (self.grabbed, self.frame) = self.stream.read()
 
     def read(self):
